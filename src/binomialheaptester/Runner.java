@@ -219,6 +219,9 @@ public class Runner {
         Scanner scanner = new Scanner(rawStep);
         String stepType = scanner.next();
         switch (stepType) {
+            case "Initialize" -> {
+                return new InitializeStep(scanner.nextInt());
+            }
             case "DecreaseKey" -> {
                 return new DecreaseKeyStep(scanner.nextInt(), scanner.next(), scanner.nextInt());
             }
