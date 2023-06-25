@@ -13,7 +13,7 @@ A statistical tester for the binomial heap exercise of the course "Data Structur
 
 
 - For each iteration of the test, a random test-case (sequence of operations) is generated and performed.
-    - If a test fails, the tester will quit and print an error message, and the test case that produced the error.
+    - If a test fails, the tester will quit and print an error message, and the last steps of the test case that produced the error.
     - The next time the tester runs after a failure it will pick the same test case.
       - For that feature the tester will save temporary results in a file on your machine. By default, the file
         is saved in your working directory (probably the project directory).
