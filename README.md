@@ -28,3 +28,14 @@ There are a few configurations you can edit for the tester, they appear as stati
 
 Feel free to play with them - I chose values that seem good to me, but my reasoning for them is
 somewhat hand-wavy ¯\_(ツ)_/¯
+
+## Steps performed
+The tester uses the info field as a unique identifier - since keys are not unique.
+The info values used are random 8 character strings.
+
+- `Initialize <num_of_heaps>` - only used once at the start of the test case - to initialize all the heaps.
+- `Insert <heap_index> <key> <info>`
+- `DeleteMin <heap_index>`
+- `DecreaseKey <heap_index> <info> <diff>`
+- `Delete <heap_index> <info>`
+- `Meld <heap1_index> <heap2_index>` - heap2 is melded into heap1.
