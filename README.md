@@ -3,6 +3,8 @@ A statistical tester for the binomial heap exercise of the course "Data Structur
 
 ## Setup
 - Copy your code file (`BinomialHeap.java`) to the directory `yourcode`.
+  - This directory has the skeleton file inside it (to make git include
+    this directory) - replace it with your code.
 - Paste the following declaration at the top of the code file:
   - ```java
     package binomialheaptester.yourcode;
