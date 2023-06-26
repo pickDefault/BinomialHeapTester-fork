@@ -37,7 +37,7 @@ For each iteration of the test, a random test-case (sequence of operations) is g
     is saved in your working directory (probably the project directory).
 
 ### Last step breakpoint
-To make debugging easier, place a breakpoint at line 104 of `Runner.java`.
+To make debugging easier, place a breakpoint at line 112 of `Runner.java`.
 
 When re-running a previously failed test case,
 this breakpoint will be hit right before the last step performed (which probably caused the failure).
