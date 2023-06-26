@@ -18,7 +18,7 @@ public class DeleteStep implements Step{
         State.SingleHeapState heapState = state.heapStates.get(this.heapIndex);
         BinomialHeap.HeapNode node = Utils.findByInfo(heapState.heap, this.info);
         assert node != null;
-        heapState.heap.delete(node.item);
+        heapState.heap.delete(node.item); // Step-into here!
         heapState.items.remove(info);
         return null;
     }

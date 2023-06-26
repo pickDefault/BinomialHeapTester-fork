@@ -20,7 +20,7 @@ public class DecreaseKeyStep implements Step{
         State.SingleHeapState heapState = state.heapStates.get(this.heapIndex);
         BinomialHeap.HeapNode node = Utils.findByInfo(heapState.heap, this.info);
         assert node != null;
-        heapState.heap.decreaseKey(node.item, this.diff);
+        heapState.heap.decreaseKey(node.item, this.diff); // Step-into here!
         int currKey = heapState.items.get(info);
         heapState.items.put(info, currKey - diff);
         return null;

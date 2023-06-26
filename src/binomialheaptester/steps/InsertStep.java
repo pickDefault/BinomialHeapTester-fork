@@ -18,7 +18,7 @@ public class InsertStep implements Step {
     @Override
     public String perform(State state) {
         State.SingleHeapState heapState = state.heapStates.get(this.heapIndex);
-        BinomialHeap.HeapItem insertedItem = heapState.heap.insert(this.key, this.info);
+        BinomialHeap.HeapItem insertedItem = heapState.heap.insert(this.key, this.info); // Step-into here!
         if (insertedItem == null) {
             return "insert() returned null (instead of the inserted item)";
         }

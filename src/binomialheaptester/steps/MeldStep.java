@@ -15,7 +15,7 @@ public class MeldStep implements Step {
     public String perform(State state){
         State.SingleHeapState firstHeap = state.heapStates.get(firstHeapIndex);
         State.SingleHeapState secondHeap = state.heapStates.remove(secondHeapIndex);
-        firstHeap.heap.meld(secondHeap.heap);
+        firstHeap.heap.meld(secondHeap.heap); // Step-into here!
         firstHeap.items.putAll(secondHeap.items);
         return null;
     }

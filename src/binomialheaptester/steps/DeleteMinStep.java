@@ -22,7 +22,7 @@ public class DeleteMinStep implements Step{
                     min.key, min.info, expectedMinKey
             );
         }
-        heapState.heap.deleteMin();
+        heapState.heap.deleteMin(); // Step-into here!
         heapState.items.remove(min.info);
         return null;
     }
