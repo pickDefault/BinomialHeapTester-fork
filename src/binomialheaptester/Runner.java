@@ -8,7 +8,12 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Runner {
+	
     public static String failedStepsFilePath = null; // by default (if null) a new file in the current working directory will be used.
+
+    // Use simple prints instead of a progress bar.
+    // Change this to true if the progress bar doesn't work properly.
+    public static boolean dontUseProgressBar = true;
 
     // Roughly represent the amount of times each method is called.
     public static Map<String, Integer[]> weightRanges = Map.of(
@@ -31,6 +36,7 @@ public class Runner {
 
     // number of steps in each test case
     public static int testLength = 2000;
+
     // number of test cases run.
     public static int numOfTests = 10000;
 
@@ -44,6 +50,7 @@ public class Runner {
         File failedStepsFile = new File(failedStepsFilePath);
         SingleTestResult result = null;
         if (failedStepsFile.exists()){
+            System.out.println("Running a previously failed test case.\n");
             List<Step> failedSteps = readFailedResult();
             result = rerunFailedTest(failedSteps);
             if (result.success) {
@@ -60,6 +67,7 @@ public class Runner {
             return;
         }
         else {
+            System.out.printf("Running %d randomly generated test cases.%n%n", numOfTests);
             for (int i = 0; i < numOfTests; i++) {
                 result = runNewTest();
                 if (!result.success) {
@@ -149,6 +157,12 @@ public class Runner {
     }
 
     private static void updateProgressBar(int currVal, int maxVal) {
+        if (dontUseProgressBar) {
+            if (currVal % 250 == 0) {
+                System.out.printf("%d of %d test cases completed.%n", currVal, maxVal);
+            }
+            return;
+        }
         int frac = (20 * currVal)/maxVal;
         String bar = String.join("", Collections.nCopies(frac, "="));
         String info = "%d of %d test cases completed.".formatted(currVal, maxVal);
