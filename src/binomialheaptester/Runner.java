@@ -151,8 +151,9 @@ public class Runner {
     private static void updateProgressBar(int currVal, int maxVal) {
         int frac = (20 * currVal)/maxVal;
         String bar = String.join("", Collections.nCopies(frac, "="));
-        String nums = "%d of %d completed.".formatted(currVal, maxVal);
-        System.out.printf("\r|%-20s| %-27s", bar, nums);
+        String info = "%d of %d test cases completed.".formatted(currVal, maxVal);
+        String barWithInfo = "[%-20s] %-40s".formatted(bar, info);
+        System.out.print("\r" + barWithInfo);
     }
 
     private static int chooseKeyRange(int testLength) {
