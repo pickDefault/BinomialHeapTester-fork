@@ -34,10 +34,7 @@ public class Runner {
     // number of test cases run.
     public static int numOfTests = 10000;
 
-    private static int lastProgressBarLength;
-
     public static void main(String[] args){
-        lastProgressBarLength = 0;
         if (failedStepsFilePath == null) {
             failedStepsFilePath = Paths.get(
                     System.getProperty("user.dir"),
@@ -154,11 +151,8 @@ public class Runner {
     private static void updateProgressBar(int currVal, int maxVal) {
         int frac = (20 * currVal)/maxVal;
         String bar = String.join("", Collections.nCopies(frac, "="));
-        String nums = "%d of %d test cases completed.".formatted(currVal, maxVal);
-        String barWithInfo = "\r[%-20s] %-27s".formatted(bar, nums);
-        String backspaces = String.join("", Collections.nCopies(lastProgressBarLength, "\b"));
-        lastProgressBarLength = barWithInfo.length();
-        System.out.printf("%s%s", backspaces, barWithInfo);
+        String nums = "%d of %d completed.".formatted(currVal, maxVal);
+        System.out.printf("\r|%-20s| %-27s", bar, nums);
     }
 
     private static int chooseKeyRange(int testLength) {
