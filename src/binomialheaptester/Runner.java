@@ -13,7 +13,7 @@ public class Runner {
 
     // Use simple prints instead of a progress bar.
     // Change this to true if the progress bar doesn't work properly.
-    public static boolean dontUseProgressBar = true;
+    public static boolean dontUseProgressBar = false;
 
     // Roughly represent the amount of times each method is called.
     public static Map<String, Integer[]> weightRanges = Map.of(
