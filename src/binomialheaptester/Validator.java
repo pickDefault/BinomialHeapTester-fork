@@ -69,7 +69,12 @@ public class Validator {
             }
         }
         else {
-            BinomialHeap.HeapItem minItem = state.heap.findMin();
+            BinomialHeap.HeapItem minItem;
+            try {
+                minItem = state.heap.findMin();
+            } catch (Exception e) {
+                return "findMin threw an error when executed on an empty heap";
+            }
             if (minItem != null) {
                 return "findMin returned a non-null result (%d, %s) for an empty heap.".formatted(
                         minItem.key, minItem.info
