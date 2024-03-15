@@ -55,7 +55,14 @@ public class Validator {
         }
         if (state.items.size() > 0) {
             int expectedMinKey = state.getMinKey();
-            BinomialHeap.HeapItem minItem = state.heap.findMin();
+			BinomialHeap.HeapItem minItem;
+            try {
+            	minItem = state.heap.findMin();
+			} catch (Exception e) {
+				return "findMin threw an error when executed on a non-empty heap. Expected findMin" +
+					 + " to return node with key %d.".formatted(
+						 expectedMinKey
+				);
             if (minItem == null) {
                 return "findMin returned null for a non empty heap.";
             }
