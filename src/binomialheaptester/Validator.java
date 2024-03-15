@@ -59,10 +59,12 @@ public class Validator {
             try {
             	minItem = state.heap.findMin();
 			} catch (Exception e) {
-				return "findMin threw an error when executed on a non-empty heap. Expected findMin" +
-					 + " to return node with key %d.".formatted(
-						 expectedMinKey
+				return new String("findMin threw an error when executed on a non-empty heap. " +
+                                  "Expected findMin to return node with key %d.\n" +
+                                  "Error message:\n" + e.getMessage).formatted(
+                                  expectedMinKey
 				);
+            }
             if (minItem == null) {
                 return "findMin returned null for a non empty heap.";
             }
@@ -80,7 +82,8 @@ public class Validator {
             try {
                 minItem = state.heap.findMin();
             } catch (Exception e) {
-                return "findMin threw an error when executed on an empty heap";
+                return new String("findMin threw an error when executed on an empty heap.\n" +
+                                  "Error message:\n" + e.getMessage());
             }
             if (minItem != null) {
                 return "findMin returned a non-null result (%d, %s) for an empty heap.".formatted(
